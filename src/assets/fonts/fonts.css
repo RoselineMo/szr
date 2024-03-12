@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Geograph";
+  src: url(./geograph.woff) format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geograph Thin";
+  src: url(./geograph_thin.woff) format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geograph Medium";
+  src: url(./geograph_medium.woff) format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geograph Light";
+  src: url(./geograph_light.woff) format("woff");
+  font-style: normal;
+}

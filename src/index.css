@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Geograph";
+  src: url(./assets/fonts/geograph.woff);
+}
+@font-face {
+  font-family: "Geograph Thin";
+  src: url(./assets/fonts/geograph_medium.woff);
+}
+@font-face {
+  font-family: "Geograph Light";
+  src: url(./assets/fonts/geograph_light.woff);
+}
+@font-face {
+  font-family: "Geograph Medium";
+  src: url(./assets/fonts/geograph_medium.woff);
+}
