@@ -26,12 +26,6 @@ export function Navigation() {
               </Link>
             </li>
 
-            <li className="lg:flex hidden gap-2 shorten-link hover:text-green-800">
-              <Link to={`shorten-link`} className="uppercase text-sm">
-                Shorten Link
-              </Link>
-            </li>
-
             <li className="lg:flex hidden gap-2 analytics hover:text-green-800">
               <Link to={`analytics`} className="uppercase text-sm">
                 Analytics
@@ -40,11 +34,6 @@ export function Navigation() {
             <li className="lg:flex hidden gap-2 qr-code hover:text-green-800">
               <Link to={`qr-code`} className="uppercase text-sm">
                 QR Code
-              </Link>
-            </li>
-            <li className="lg:flex hidden gap-2 blog hover:text-green-800">
-              <Link to={`custom-domain`} className="uppercase text-sm">
-                Custom Domain
               </Link>
             </li>
           </div>
@@ -58,12 +47,6 @@ export function Navigation() {
             <li className="profile self-center ">
               <Link to={`profile`}>
                 <IoPersonOutline size={19} className="hover:text-green-800" />
-              </Link>
-            </li>
-
-            <li className="dark-mode self-center">
-              <Link to={`dark-mode`}>
-                <FaMoon size={19} className="hover:text-green-800" />
               </Link>
             </li>
 

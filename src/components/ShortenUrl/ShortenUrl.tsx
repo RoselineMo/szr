@@ -1,3 +1,4 @@
+import axios from "axios";
 import {useState} from "react";
 import {BsStars} from "react-icons/bs";
 import {FaArrowDown, FaChevronRight} from "react-icons/fa6";
