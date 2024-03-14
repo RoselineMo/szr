@@ -2,15 +2,19 @@ import {Outlet} from "react-router-dom";
 import "../App.css";
 import {Footer} from "../components/Footer/Footer";
 import {Navigation} from "../components/Navigation/Navigation";
+import {useEffect, useState} from "react";
 
 function App() {
+  const [date, setDate] = useState(new Date());
+  useEffect(() => setDate(date), []);
+
   return (
     <div className={`w-full wrapper`}>
       <Navigation />
-      <div id="detail">
+      <div>
         <Outlet />
       </div>
-      <Footer date={2024} visitsCount={1489} />
+      <Footer date={date} visitsCount={1489} />
     </div>
   );
 }
