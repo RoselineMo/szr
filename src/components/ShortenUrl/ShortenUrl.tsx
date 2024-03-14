@@ -25,28 +25,18 @@ export function ShortenUrl() {
     }
 
     try {
-      var myHeaders = new Headers();
-      myHeaders.append("apikey", "dftuzljsBFK5CBjMBHJIXsRESFzJWyPK");
-
-      var raw = JSON.stringify({
-        long_url: longUrl,
-      });
-
-      var requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-      };
-
-      const response = await fetch(
+      const response = await axios.post(
         "https://api.apilayer.com/short_url/hash",
-        requestOptions
+        {longUrl, domain: selectedDomain, customUrl},
+        {
+          headers: {
+            apikey: "dftuzljsBFK5CBjMBHJIXsRESFzJWyPK",
+          },
+        }
       );
-      const data = await response.json();
 
-      if (data.short_url) {
-        setShortUrl(data.short_url);
-        console.log(response.text());
+      if (response.data.short_url) {
+        setShortUrl(response.data.result);
       } else {
         setError("Failed to shorten URL");
       }
