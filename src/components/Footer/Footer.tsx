@@ -45,7 +45,7 @@ export function Footer({visitsCount, date}: {visitsCount: number; date: Date}) {
 
         <div className="last grid md:flex md:justify-between relative">
           <div className="pt-3 md:pt-0 flex gap-2 md:order-1 order-2">
-            <Link to={`/`} className="text-2xl">
+            <Link to={`/`} className="text-2xl flex">
               szr
             </Link>
             {fullYear && (

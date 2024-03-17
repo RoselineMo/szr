@@ -81,11 +81,7 @@ export function Navigation() {
           />
           <ul className="py-1 mb-20  justify-center">
             <li className="shorten-link">
-              <Link
-                to={`shorten-link`}
-                onClick={toggleMenu}
-                className="uppercase"
-              >
+              <Link to={`/#shorten`} onClick={toggleMenu} className="uppercase">
                 Shorten Link
               </Link>
             </li>

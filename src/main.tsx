@@ -12,7 +12,6 @@ import {QRCode} from "./routes/QRCode.tsx";
 import {Analytics} from "./routes/Analytics.tsx";
 import {SignUp} from "./routes/SignUp.tsx";
 import {Login} from "./routes/Login.tsx";
-import {ShortenLink} from "./routes/ShortenLink.tsx";
 
 const router = createBrowserRouter([
   {
@@ -51,10 +50,6 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
-      },
-      {
-        path: "shorten-link",
-        element: <ShortenLink />,
       },
     ],
   },

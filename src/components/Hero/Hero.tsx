@@ -1,12 +1,13 @@
+import {FaStar} from "react-icons/fa6";
 import img from "../../assets/images/szr-cutting-link.jpeg";
 import {ShortenUrl} from "../ShortenUrl/ShortenUrl.tsx";
 
 export function Hero() {
   return (
     <div className="hero h-full mt-40 md:flex grid-cols-1 gap-16">
-      <div className="hero-header mt-12">
+      <div className="hero-header mt-12" id="shorten">
         <h1 className="text-5xl tracking-tight font-medi mb-4">
-          The Free Link Shortener
+          Shorten that link<span className="text-green-800 text-6xl">.</span>
         </h1>
         <p className="text-2xl font-light tracking-tight mb-10">
           Shorten, Customize and Track URL Clicks - 100% Free
@@ -14,19 +15,17 @@ export function Hero() {
 
         <ShortenUrl />
 
-        <div className="bonus text-gray-600  leading-loose mb-4">
-          <span className="font-medi uppercase border-b-2 border-b-black">
-            Bonus{" "}
-          </span>
-        </div>
-
-        <ul className="grid gap-4">
-          <li>Generate QR Code </li>
-          <li>Use Your Custom Domain</li>
-          <li>Track Your Link's Performance</li>
+        <ul className="grid gap-6 w-52">
+          <li className="goodies flex gap-2 cursor-pointer">
+            <FaStar className="self-center text-green-800" /> Generate QR Code
+          </li>
+          <li className="goodies flex gap-2 cursor-pointer">
+            <FaStar className="self-center text-green-800" /> Track URL
+            Performance
+          </li>
         </ul>
       </div>
-      <div className="hero-image hidden lg:block rotate-6 shadow-lg mt-16">
+      <div className="hero-image hidden lg:block rotate-6 shadow-lg mt-16 p-2">
         <img src={img} alt="hero image" />
       </div>
     </div>
