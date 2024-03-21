@@ -14,7 +14,7 @@ function App() {
       <div>
         <Outlet />
       </div>
-      <Footer date={date} visitsCount={1489} />
+      <Footer date={date} />
     </div>
   );
 }

@@ -58,5 +58,3 @@ export const useAuthentication = (
 
   return [auth, {error}, handleSignUp, handleSignIn, handleSignOut];
 };
-
-// export default useAuthentication;
