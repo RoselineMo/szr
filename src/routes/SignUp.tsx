@@ -7,7 +7,7 @@ import {useAuthentication} from "../hooks/useAuthentication";
 export function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, , handleSignUp, , handleSignOut] = useAuthentication(app);
+  const [auth, , handleSignUp, , handleSignOut] = useAuthentication(SignUp);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
