@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {FirebaseApp} from "firebase/app";
+// import {FirebaseApp} from "firebase/app";
 import {
   getAuth,
   Auth,
@@ -13,7 +13,7 @@ export interface AuthenticationResult {
 }
 
 export const useAuthentication = (
-  app: FirebaseApp
+  app: any
 ): [
   Auth,
   AuthenticationResult,
