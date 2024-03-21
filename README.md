@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+#Introduction
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This web app provides a free url shortening service.
 
-Currently, two official plugins are available:
+Along with the service is url customisation.
+Additional functionalities are a QR Code generator and Analytics to track links performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#Setbacks
+Currently, only the url shortening functionality is available. This is due to limitations of API availability & documentations, error struggles especially with Firebase and API and gaps in understanding. It is still a work in progress though. Hopefully will be completed and fully functional eventually.
 
-## Expanding the ESLint configuration
+#Learning points
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project made me learn Typescript, Endpoint methods, working Firebase Authentication and and getting comfortable with React Router.
 
-- Configure the top-level `parserOptions` property like this:
+#Tools
+This project was built with Vite React, Typescript, NPM and VSCode
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+#Packages highlighted
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Axios
+2. React Router Dom
+3. Firebase
+4. Tailwind CSS
