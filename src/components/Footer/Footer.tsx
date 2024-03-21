@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react";
-import {TfiStatsUp} from "react-icons/tfi";
 import {Link} from "react-router-dom";
 
-export function Footer({visitsCount, date}: {visitsCount: number; date: Date}) {
+export function Footer({date}: {date: Date}) {
   const [fullYear, setFullYear] = useState(0);
 
   useEffect(() => {
@@ -54,17 +53,6 @@ export function Footer({visitsCount, date}: {visitsCount: number; date: Date}) {
               </span>
             )}
           </div>
-
-          <span className="visits flex gap-1 text-sm md:order-2 order-1">
-            <TfiStatsUp strokeWidth={1} className="self-end mb-1" />
-            <a
-              href=""
-              rel="noopener noreferrer"
-              className="font-light md:pt-0 self-end"
-            >
-              {visitsCount} Visits. Thank you.
-            </a>
-          </span>
         </div>
       </div>
     </div>

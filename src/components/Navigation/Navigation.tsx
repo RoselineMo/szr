@@ -1,5 +1,4 @@
 import {GrClose} from "react-icons/gr";
-import {FaMoon} from "react-icons/fa6";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {TfiHelpAlt} from "react-icons/tfi";
@@ -95,15 +94,22 @@ export function Navigation() {
                 QR Code
               </Link>
             </li>
-            <li className="custom-domain">
-              <Link
-                to={`custom-domain`}
-                onClick={toggleMenu}
-                className="uppercase"
-              >
-                Custom Domain
-              </Link>
-            </li>
+            <div className="actions flex gap-2 mt-4">
+              <li className="login self-center text-sm font-medi text-green-950 hover:text-green-800">
+                <Link to={`login`} onClick={toggleMenu}>
+                  Login
+                </Link>
+              </li>
+
+              <li className="profile self-center">
+                <button
+                  className="w-20 h-8 bg-green-900 text-white text-xs font-medi border-green-900 rounded-xl hover:bg-green-950 hover:text-white hover:border-green-950 hover:border-2"
+                  onClick={() => navigate("/sign-up")}
+                >
+                  Sign up
+                </button>
+              </li>
+            </div>
           </ul>
 
           <div>
@@ -117,12 +123,6 @@ export function Navigation() {
               <li className="profile">
                 <Link to={`profile`} onClick={toggleMenu}>
                   <IoPersonOutline size={18} />
-                </Link>
-              </li>
-
-              <li className="dark-mode">
-                <Link to={`dark-mode`} onClick={toggleMenu}>
-                  <FaMoon size={18} />
                 </Link>
               </li>
             </ul>

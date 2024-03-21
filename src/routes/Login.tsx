@@ -1,23 +1,41 @@
 import {FaGoogle} from "react-icons/fa6";
 import {FiEye} from "react-icons/fi";
 import {Link} from "react-router-dom";
+import {useState} from "react";
+import {useAuthentication} from "../hooks/useAuthentication";
 
 export function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [auth, , handleSignIn, , handleSignOut] = useAuthentication(app);
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    await handleSignIn(email, password);
+  };
   return (
     <div className="wrapper md:mt-36 mt-32  w-full grid-cols-3 place-items-center">
       <div className="form">
         <h1 className="text-4xl font-medi leading-loose mb-4 text-center">
           Welcome back
         </h1>
-        <form action="submit grid">
+        <form action="submit" className="grid">
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Email address"
             className="w-80 h-12 pl-6 border border-gray-300 rounded-lg mb-4 caret-green-800 focus:outline-green-800"
           />
           <div className="password flex justify-between mb-4 relative">
+            <label htmlFor="password">Password:</label>
             <input
               type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               className="w-80 h-12 pl-6 border border-gray-300 rounded-lg caret-green-800 focus:outline-green-800"
             />
@@ -26,7 +44,10 @@ export function Login() {
           <p className="text-sm text-green-900 tracking-tight mb-6">
             Forgot password?
           </p>
-          <button className="w-80 h-14 text-sm uppercase text-white font-medi bg-green-900 border rounded-xl hover:bg-green-950 hover:text-white hover:border-green-950 hover:border-2 mb-4">
+          <button
+            onClick={handleSubmit}
+            className="w-80 h-14 text-sm uppercase text-white font-medi bg-green-900 border rounded-xl hover:bg-green-950 hover:text-white hover:border-green-950 hover:border-2 mb-4"
+          >
             Continue
           </button>
           <p className="tracking-tight text-sm text-center mb-6">
@@ -52,6 +73,9 @@ export function Login() {
             <Link to={`/`}>Privacy Policy</Link>
           </div>
         </form>
+        {auth.currentUser && (
+          <button onClick={() => handleSignOut}>SignOut</button>
+        )}
       </div>
     </div>
   );
