@@ -165,7 +165,7 @@ export function ShortenUrl() {
             id="domain"
             value={userDomain}
             onChange={(e) => setUserDomain(e.target.value)}
-            className="domain w-32 md:w-40 h-12 pl-3 pb-1 border border-gray-300 lowercase font-medi focus:outline-gray-600 text-gray-400 md:text-sm text-xs"
+            className="domain w-36 md:w-40 h-12 pl-3 pb-1 border border-gray-300 lowercase font-medi focus:outline-gray-600 text-gray-400 md:text-sm text-xs"
           >
             <option value={domain}>{domain}/</option>
             <option value="|">yourdomain.tld/</option>
