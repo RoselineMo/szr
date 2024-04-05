@@ -165,7 +165,7 @@ export function ShortenUrl() {
             id="domain"
             value={userDomain}
             onChange={(e) => setUserDomain(e.target.value)}
-            className="domain w-60 md:w-40 h-12 pl-3 pb-1 border border-gray-300 lowercase font-medi focus:outline-gray-600 text-gray-400 md:text-sm text-xs"
+            className="domain w-20 md:w-40 h-12 pl-2 pb-1 border border-gray-300 lowercase font-medi focus:outline-gray-600 text-gray-400 md:text-sm text-xs"
           >
             <option value={domain}>{domain}/</option>
             <option value="|">yourdomain.tld/</option>
@@ -177,7 +177,7 @@ export function ShortenUrl() {
             value={customAlias}
             onChange={(e) => setCustomAlias(e.target.value)}
             placeholder="Enter custom text"
-            className="custom-text absolute w-40 md:w-56 h-12 pl-3 pb-1 border border-gray-300 caret-green-800 focus:outline-green-800 md:text-sm text-xs z-10"
+            className="custom-text absolute w-80 md:w-56 h-12 pl-3 pb-1 border border-gray-300 caret-green-800 focus:outline-green-800 md:text-sm text-xs z-10"
           />
         </div>
         {userDomain && (
