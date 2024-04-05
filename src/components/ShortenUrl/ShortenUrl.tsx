@@ -14,7 +14,7 @@ export function ShortenUrl() {
   const [errorMessage, setErrorMessage] = useState("");
   const [customAlias, setCustomAlias] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const domain = "roselinemo.com";
+  const domain = "szr-thetha.vercel.app";
   const [userDomain, setUserDomain] = useState("");
 
   const urlRegex = /^(http|https):\/\/[\w.-]+(:\d+)?(\/[\w.-]*)*\.[\w]+$/;
@@ -45,6 +45,8 @@ export function ShortenUrl() {
       if (!shortenedUrl) {
         throw new Error("Shortened URL not found in response");
       }
+      // Update shortUrl after successful fetch
+      setShortUrl(shortenedUrl);
     } catch (error) {
       setError("Failed to shorten url");
       console.error("Error shortening URL:", error);
@@ -118,7 +120,11 @@ export function ShortenUrl() {
         <div className="result w-96 mb-8 mt-2 border border-gray-400 rounded-lg grid grid-cols-1 p-6 h-32 text-sm text-gray-900">
           <p>Here's Your Short URL:</p>
           <a
-            href={shortUrl}
+            onClick={(event) => {
+              event.preventDefault(); // Prevent default href behavior
+              window.location.href = longUrl; // Redirect using window.location.href
+            }}
+            href={longUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-800 text-md font-medi"
@@ -128,21 +134,25 @@ export function ShortenUrl() {
         </div>
       ) : (
         <div className="flex gap-2 mb-8 mt-2">
-          <p className="text-red-600 flex gap-2">
-            {error}
-            <button
-              onClick={() => {
-                setError("");
-                setLongUrl("");
-              }}
-              aria-label="Close error message"
-              className={`border border-gray-400 rounded-xs w-8 p-1 uppercase text-gray-600 text-xs ${
-                error ? "visible" : "hidden"
-              }`}
-            >
-              x
-            </button>
-          </p>
+          {isLoading ? (
+            <p className="text-gray-400">Shortening URL...</p>
+          ) : (
+            <p className="text-red-600 flex gap-2">
+              {error}
+              <button
+                onClick={() => {
+                  setError("");
+                  setLongUrl("");
+                }}
+                aria-label="Close error message"
+                className={`border border-gray-400 rounded-xs w-8 p-1 uppercase text-gray-600 text-xs ${
+                  error ? "visible" : "hidden"
+                }`}
+              >
+                x
+              </button>
+            </p>
+          )}
         </div>
       )}
 
