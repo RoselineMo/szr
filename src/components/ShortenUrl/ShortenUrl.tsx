@@ -117,7 +117,7 @@ export function ShortenUrl() {
       </div>
 
       {shortUrl ? (
-        <div className="result w-80 md:w-96 mb-8 mt-2 border border-gray-400 rounded-lg grid grid-cols-1 p-6 h-32 text-sm text-gray-900">
+        <div className="result w-64 md:w-80 mb-8 mt-2 border border-gray-400 rounded-lg grid grid-cols-1 p-6 h-32 text-sm text-gray-900">
           <p>Here's Your Short URL:</p>
           <a
             onClick={(event) => {
