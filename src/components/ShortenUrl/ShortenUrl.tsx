@@ -14,7 +14,7 @@ export function ShortenUrl() {
   const [errorMessage, setErrorMessage] = useState("");
   const [customAlias, setCustomAlias] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const domain = "szr-thetha.vercel.app";
+  const domain = "szr-url.com";
   const [userDomain, setUserDomain] = useState("");
 
   const urlRegex = /^(http|https):\/\/[\w.-]+(:\d+)?(\/[\w.-]*)*\.[\w]+$/;
