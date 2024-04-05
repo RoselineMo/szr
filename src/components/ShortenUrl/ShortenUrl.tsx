@@ -1,17 +1,21 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import {BsStars} from "react-icons/bs";
 import {FaArrowDown, FaChevronRight} from "react-icons/fa6";
+import {useTransform} from "../../hooks/useTransform";
 
 export function ShortenUrl() {
   const [longUrl, setLongUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
+  const [userShortUrl, setUserShortUrl] = useState("");
+  const [newShortUrl] = useState("");
   const [error, setError] = useState("");
   const [isValidUrl, setIsValidUrl] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [customAlias, setCustomAlias] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const domain = "roselinemo.com";
+  const [userDomain, setUserDomain] = useState("");
 
   const urlRegex = /^(http|https):\/\/[\w.-]+(:\d+)?(\/[\w.-]*)*\.[\w]+$/;
 
@@ -41,9 +45,6 @@ export function ShortenUrl() {
       if (!shortenedUrl) {
         throw new Error("Shortened URL not found in response");
       }
-
-      setShortUrl(shortenedUrl);
-      console.log(response.data);
     } catch (error) {
       setError("Failed to shorten url");
       console.error("Error shortening URL:", error);
@@ -52,13 +53,28 @@ export function ShortenUrl() {
     }
   }
 
+  //The useEffect triggers only when shortUrl becomes available
+  useEffect(() => {
+    if (shortUrl) {
+      const {newShortUrl, userShortUrl} = useTransform(
+        shortUrl,
+        domain,
+        userDomain,
+        customAlias
+      );
+      setShortUrl(userShortUrl ? userShortUrl : newShortUrl);
+      console.log(shortUrl);
+      setUserShortUrl(userShortUrl);
+    }
+  }, []);
+
   return (
     <div>
       <div className="shorten mb-6">
         <p className="text-gray-400 mb-5 flex gap-1">
           Try it now <FaArrowDown className="self-center mt-2 animate-bounce" />
         </p>
-        <form className="paste-url flex justify-start gap-0 mb-4 w-96 relative">
+        <form className="paste-url flex justify-start gap-0 mb-4 w-80 md:w-96 relative">
           <input
             type="text"
             value={longUrl}
@@ -70,7 +86,7 @@ export function ShortenUrl() {
             }}
             placeholder="Paste a long url here"
             required
-            className="w-96 h-12 pl-3 pr-2 border border-gray-300 rounded-lg caret-green-800  focus:outline-green-800"
+            className="w-80 h-12 pl-3 pr-2 border border-gray-300 rounded-lg caret-green-800  focus:outline-green-800"
           />
           <button
             type="button"
@@ -104,10 +120,10 @@ export function ShortenUrl() {
           <a
             href={shortUrl}
             target="_blank"
-            rel=""
+            rel="noopener noreferrer"
             className="text-gray-800 text-md font-medi"
           >
-            {shortUrl}
+            {userShortUrl ? userShortUrl : newShortUrl}
           </a>
         </div>
       ) : (
@@ -131,31 +147,38 @@ export function ShortenUrl() {
       )}
 
       <div className="optional mb-12">
-        <p className="text-gray-400 text-sm mb-5 flex gap-1">
+        <p className="text-gray-400 md:text-sm text-xs mb-5 flex gap-1">
           <BsStars className="self-center" /> Optional: Customize url text
         </p>
-        <div className="flex justify-start gap-0 mb-2 w-96 relative">
+        <div className="flex justify-start gap-0 mb-2 w-80 md:w-96 relative">
           <select
             id="domain"
-            value={""}
-            onChange={() => {}}
-            className="domain w-40 h-12 pl-3 pb-1 border border-gray-300 lowercase font-light focus:outline-gray-600 text-gray-400"
+            value={userDomain}
+            onChange={(e) => setUserDomain(e.target.value)}
+            className="domain md:w-40 h-12 pl-3 pb-1 border border-gray-300 lowercase font-medi focus:outline-gray-600 text-gray-400 md:text-sm text-xs"
           >
             <option value={domain}>{domain}/</option>
-            <option value="Use your domain" disabled>
-              Use your domain
-            </option>
+            <option value="|">yourdomain.tld/</option>
           </select>
+
           <input
             type="text"
             id="custom-url"
             value={customAlias}
-            disabled
             onChange={(e) => setCustomAlias(e.target.value)}
             placeholder="Enter custom text"
-            className="custom-text absolute w-56 h-12 pl-3 pb-1 border border-gray-300 caret-green-800 focus:outline-green-800 "
+            className="custom-text absolute w-56 h-12 pl-3 pb-1 border border-gray-300 caret-green-800 focus:outline-green-800 md:text-sm text-xs"
           />
         </div>
+        {userDomain && (
+          <input
+            type="text"
+            value={userDomain}
+            onChange={(e) => setUserDomain(e.target.value)}
+            placeholder="Enter your domain"
+            className="domain absolute mt-12  md:w-40 h-12 pl-3 pb-1 border border-gray-300 rounded-md lowercase font-light focus:outline-gray-600 text-gray-400 md:text-sm text-xs"
+          />
+        )}
       </div>
     </div>
   );

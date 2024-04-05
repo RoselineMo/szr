@@ -6,11 +6,12 @@ export function Hero() {
   return (
     <div className="hero h-full mt-40 md:flex grid-cols-1 gap-16">
       <div className="hero-header mt-12" id="shorten">
-        <h1 className="text-5xl tracking-tight font-medi mb-4">
+        <h1 className="md:text-5xl text-3xl tracking-tight font-medi mb-4">
           Shorten that link<span className="text-green-800 text-6xl">.</span>
         </h1>
-        <p className="text-2xl font-light tracking-tight mb-10">
-          Shorten, Customize and Track URL Clicks - 100% Free
+        <p className="md:text-2xl text-xl font-light tracking-tight mb-10">
+          Shorten, Customize and Track URL Clicks <br />
+          100% Free
         </p>
 
         <ShortenUrl />
