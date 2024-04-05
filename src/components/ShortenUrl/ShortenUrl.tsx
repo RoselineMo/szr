@@ -66,7 +66,7 @@ export function ShortenUrl() {
       console.log(shortUrl);
       setUserShortUrl(userShortUrl);
     }
-  }, []);
+  }, [shortUrl, domain, userDomain, customAlias]);
 
   return (
     <div>
