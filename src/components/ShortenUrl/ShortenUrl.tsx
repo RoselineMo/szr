@@ -186,7 +186,7 @@ export function ShortenUrl() {
             value={userDomain}
             onChange={(e) => setUserDomain(e.target.value)}
             placeholder="Enter your domain"
-            className="domain absolute mt-12 md:w-40 w:64 h-12 pl-3 pb-1 border border-gray-300 rounded-md lowercase font-light focus:outline-gray-600 text-gray-400 md:text-sm text-xs"
+            className="domain absolute mt-12 md:w-40 w:56 h-12 pl-3 pb-1 border border-gray-300 rounded-md lowercase font-light focus:outline-gray-600 text-gray-400 md:text-sm text-xs"
           />
         )}
       </div>
